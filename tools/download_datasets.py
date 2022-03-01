@@ -1,8 +1,12 @@
 #!/usr/bin/python
 
 import argparse
+import zipfile
+
+import kaggle
 
 dataset_list = ["titanic"]
+
 
 def create_parser():
     parser = argparse.ArgumentParser(description = "An addition program")
@@ -14,15 +18,27 @@ def create_parser():
                     help = "Download a single dataset for this repository.")
 
     return parser
-    
+
+
+def fetch_kaggle_dataset(dataset):
+    kaggle.api.competition_download_files(dataset, path=f"./datasets/{dataset}", quiet=False)
+    with zipfile.ZipFile(f"./datasets/{dataset}/{dataset}.zip","r") as zip_ref:
+        zip_ref.extractall(f"./datasets/{dataset}")
+    return None
 
 def parse_args(parser):
     args = parser.parse_args()
     if(args.all == True):
+        for dataset in dataset_list:
+             fetch_kaggle_dataset(dataset)
         return None
     
-    elif(args.single in dataset_list):
+    elif(args.single[0] in dataset_list):
+        fetch_kaggle_dataset(args.single[0])
         return None
+    
+    else:
+        raise KeyError("Dataset not found. Check the README for supported datasets.") 
 
 
 
