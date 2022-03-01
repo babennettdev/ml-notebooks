@@ -13,12 +13,16 @@ datasets
 
 ## CLI Tool
 
-### CLI Tool Install
+### CLI Tool Installation
+Register for an account on Kaggle.com and follow their [Authentication instructions](https://www.kaggle.com/docs/api). Ensure the API key is stored properly.
+
 Install the necessary packages by executing the following command from the root directory:
 
 ```
 pip install -r .\tools\requirements.txt
 ```
+
+Now you should be ready to run the CLI tool to download datasets!
 
 ### CLI Tool Download
 To download all datasets, run the following command from the root directory:
