@@ -1,5 +1,15 @@
 # Datasets
 
+## Table Of Contents
+
+- [Datasets](#datasets)
+- [Table of Contents](#table-of-contents)
+- [Manual Download](#manual-download)
+- [CLI Tools](#cli-tools)
+    - [CLI Tool(s) Installation](#cli-tools-installation)
+    - [Download Using download_datasets.py](#download-using-downloaddatasetspy)
+    - [Download using the Kaggle API CLI Tool](#download-using-the-kaggle-api-cli-tool)
+
 ## Manual Download
 
 You can download datasets directly from Kaggle.com. Folder structure (to ensure no modifications are necessary) is listed below.
@@ -11,9 +21,9 @@ datasets
     |--- *.csv
 ```
 
-## CLI Tool
+## CLI Tools
 
-### CLI Tool Installation
+### CLI Tool(s) Installation
 Register for an account on Kaggle.com and follow their [Authentication instructions](https://www.kaggle.com/docs/api). Ensure the API key is stored properly.
 
 Install and unzip the necessary packages by executing the following command from the root directory:
