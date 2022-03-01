@@ -1,14 +1,34 @@
 #!/usr/bin/python
 
-import sys
+import argparse
 
-def parse_args():
-    arguments = len(sys.argv) - 1
-    return arguments
+dataset_list = ["titanic"]
+
+def create_parser():
+    parser = argparse.ArgumentParser(description = "An addition program")
+
+    parser.add_argument("--all", action="store_true", required=False,
+                        help = "Download all of the datasets for this repository.")
+
+    parser.add_argument("--single", nargs = 1, metavar = "single", type = str, required=False,
+                    help = "Download a single dataset for this repository.")
+
+    return parser
+    
+
+def parse_args(parser):
+    args = parser.parse_args()
+    if(args.all == True):
+        return None
+    
+    elif(args.single in dataset_list):
+        return None
+
+
 
 def download_datasets():
-    number_of_arguements = parse_args()
-    print ("The script is called with %i arguments" % (number_of_arguements))
+    parser = create_parser()
+    parse_args(parser)
     return None
 
 if __name__ == "__main__":
