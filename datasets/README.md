@@ -2,7 +2,7 @@
 
 ## Manual Download
 
-You can download datasets directly from Kaggle.com. Folder structure (to ensure no modifications are necessary) is listen below.
+You can download datasets directly from Kaggle.com. Folder structure (to ensure no modifications are necessary) is listed below.
 
 ```
 datasets 
@@ -24,7 +24,7 @@ pip install -r .\tools\requirements.txt
 
 Now you should be ready to run the CLI tool to download datasets!
 
-### CLI Tool Download
+### Download Using download_datasets.py
 To download all datasets, run the following command from the root directory:
 
 ```
@@ -35,4 +35,15 @@ To download a single dataset, run the following command from the root directory:
 
 ```
 python .\tools\download_datasets.py --single {dataset_name}
+```
+
+### Download using the Kaggle API CLI Tool
+
+To download datasets using the Kaggle CLI tool, follow the instructions on their [website](https://www.kaggle.com/docs/api). Datasets should follow the following directory structure to work with this repository's Jupyter Notebooks (without modification).
+
+```
+datasets 
+|--- {dataset_name}
+    |--- {dataset_name}.zip
+    |--- *.csv
 ```
