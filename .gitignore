@@ -1,6 +1,7 @@
 /datasets/*/**
 /tmp/**
 /src/**/result/*.csv
+/src/**/models/**
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
