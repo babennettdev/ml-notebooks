@@ -3,6 +3,7 @@
 /src/**/result/*.csv
 /src/**/results/*.csv
 /src/**/models/**
+/src/**/transformed-data/*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
