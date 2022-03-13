@@ -28,6 +28,7 @@ def one_hot_encode_columns(
     """
     for column_to_encode in columns_to_encode:
         encoded_dataframe = one_hot_encoder.fit_transform(dataframe[column_to_encode].values.reshape(-1, 1))
+        encoded_dataframe = encoded_dataframe.astype('int')
         encoded_dataframe.columns = one_hot_encoder.get_feature_names([column_to_encode])
         encoded_dataframe = pd.DataFrame(encoded_dataframe.toarray(), columns=encoded_dataframe.columns)
         dataframe= pd.concat([dataframe, encoded_dataframe ], axis=1)
