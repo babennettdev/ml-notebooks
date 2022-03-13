@@ -5,7 +5,7 @@ import zipfile
 
 import kaggle
 
-dataset_list = ["titanic"]
+dataset_list = ["titanic", "spaceship-titanic"]
 
 
 def create_parser():
