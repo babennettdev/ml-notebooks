@@ -2,7 +2,7 @@ from typing import List
 import numpy as np
 import pandas as pd
 
-def fill_na_with_mean_or_mode(dataframe: pd.DataFrame, columns_to_fill: List) -> float:
+def fill_na_with_mean_or_mode(*, dataframe: pd.DataFrame, columns_to_fill: List) -> float:
     """
     Function to fill N/A columns in a DataFrame with the mean value.
 
