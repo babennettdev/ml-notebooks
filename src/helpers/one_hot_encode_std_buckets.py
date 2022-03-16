@@ -24,7 +24,10 @@ def one_hot_encode_std_buckets(
 
     columns_to_encode : List
         List of columns on the dataframe to encode.
-    
+
+    number_of_std_to_bucket : int
+        Number of standard deviations to bucket (greater than 0)
+
     bucket_zero : bool
         Create a bucket specifically for values equal to 0.
 
