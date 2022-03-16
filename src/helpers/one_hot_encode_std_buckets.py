@@ -9,7 +9,7 @@ def one_hot_encode_std_buckets(
     columns_to_encode: List,
     number_of_std_to_bucket: int,
     bucket_zero: bool = False,
-    std_mean_constants_json: dict
+    std_mean_constants_json: dict = {}
 ) -> pd.DataFrame: 
     """
     Function to one hot encode passenger sex ("male" or "female").
