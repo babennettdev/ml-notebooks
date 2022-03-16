@@ -7,8 +7,9 @@ def one_hot_encode_std_buckets(
     one_hot_encoder: OneHotEncoder,
     dataframe: pd.DataFrame,
     columns_to_encode: List,
-    number_of_std_to_bucket: int
+    number_of_std_to_bucket: int,
     bucket_zero: bool = False,
+    std_mean_constants_json: dict
 ) -> pd.DataFrame: 
     """
     Function to one hot encode passenger sex ("male" or "female").
@@ -27,6 +28,11 @@ def one_hot_encode_std_buckets(
     bucket_zero : bool
         Create a bucket specifically for values equal to 0.
 
+    std_mean_constants_json : object
+        A JSON object with keys from {columns_to_encode} containing 
+        keys "mean" and "std" with the mean and standard deviation
+        of the column (meant for importing training values to transform test values)
+
     Return
     ----------
     encoded_dataframe: pandas.DataFrame
@@ -40,8 +46,13 @@ def one_hot_encode_std_buckets(
                 dataframe[f'{column_prefix}_is_zero'][i] = 1
             
             else:
-                column_mean = dataframe[column_to_encode].mean()
-                column_std = dataframe[column_to_encode].std()
+                if (column_to_encode in std_mean_constants_json):
+                    column_mean = std_mean_constants_json[column_to_encode]['mean']
+                    column_std = std_mean_constants_json[column_to_encode]['std']
+
+                else: 
+                    column_mean = dataframe[column_to_encode].mean()
+                    column_std = dataframe[column_to_encode].std()
 
                 for std_to_bucket in number_of_std_to_bucket:
                     dataframe[f'column_prefix_std_{std_to_bucket}'][i] = 0
@@ -56,7 +67,7 @@ def one_hot_encode_std_buckets(
                             
                             dataframe[f'column_prefix_std_-{std_to_bucket}'][i] = 1
                     
-                    elif std_to_bucket == number_of_std_to_bucket
+                    elif std_to_bucket == number_of_std_to_bucket:
                         if dataframe[column_to_encode][i] >= ( column_mean + column_std * std_to_bucket ):
                             dataframe[f'column_prefix_std_{std_to_bucket}'][i] = 1
 
