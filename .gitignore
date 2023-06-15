@@ -4,7 +4,7 @@
 /src/**/results/*.csv
 /src/**/results/best-results/*.csv
 /src/**/models/**
-/src/**/transfo
+/src/**/transformed-data/*.csv
 
 # Mac OS
 .DS_Store
