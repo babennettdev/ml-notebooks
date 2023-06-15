@@ -4,7 +4,10 @@
 /src/**/results/*.csv
 /src/**/results/best-results/*.csv
 /src/**/models/**
-/src/**/transformed-data/*.csv
+/src/**/transfo
+
+# Mac OS
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
